@@ -20,15 +20,14 @@ const Footer = () => {
           </Link>
         </div>
 
-        {/* Map Section */}
-        <div className="w-full md:w-1/3">
-          <iframe
-            className="rounded-lg w-full h-56"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8582979150537!2d-122.41941508468291!3d37.77492927975806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808581537a9f0df9%3A0x1f5dfb49f2f72c12!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1634140494851!5m2!1sen!2sin"
-            loading="lazy"
-            title="JobQuest Location"
-          ></iframe>
-        </div>
+{/*          
+        <div className="w-full md:w-1/3 flex justify-center items-center">
+  <img 
+    src= '../assets/image.png'
+    alt="JobQuest Logo"
+    className="w-20 h-20 object-contain" // Adjust the size as needed
+  />
+</div> */}
 
         {/* Quote and Social Links */}
         <div className="text-center">

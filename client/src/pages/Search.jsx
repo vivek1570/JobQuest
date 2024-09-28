@@ -266,8 +266,17 @@ import React from 'react'
 
 export default function Search() {
   return (
-    <div>
-      hello from search page
-    </div>
+   <div className="flex items-center justify-center h-screen bg-gradient-to-r from-blue-500 to-purple-600">
+  <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+    <h1 className="text-4xl font-bold text-blue-600">Coming Soon...</h1>
+    <p className="mt-4 text-gray-600">We are working hard to bring you this feature. Stay tuned!</p>
+   
+    {/* <button className="mt-6 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300">
+      Notify Me
+    </button> */}
+  </div>
+</div>
+
+  
   )
 }

@@ -132,38 +132,24 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Footer from "../components/Footer";
 
 export default function Home() {
 
-  const [experiences, setExperiences] = useState([
-    {
-      _id: '1',
-      company_name: 'Google',
-      description: 'The Google interview process was challenging but rewarding. It started with an online assessment, followed by 3 technical interviews focusing on data structures, algorithms, and system design.',
-    },
-    {
-      _id: '2',
-      company_name: 'Amazon',
-      description: 'Amazon’s interview was a mix of behavioral and technical questions. They emphasized their leadership principles and tested my problem-solving skills through coding problems and system design questions.',
-    },
-    {
-      _id: '3',
-      company_name: 'Microsoft',
-      description: 'The Microsoft interview focused on problem-solving, with coding questions in data structures and algorithms, followed by a design discussion. There was a strong emphasis on collaboration and clear communication.',
-    },
-    {
-      _id: '4',
-      company_name: 'Meta',
-      description: 'The interview consisted of coding challenges related to graphs and trees. Additionally, there was a product design interview where I had to design a scalable system for millions of users.',
-    },
-    {
-      _id: '5',
-      company_name: 'Tesla',
-      description: 'Tesla’s interview process involved a technical round focusing on problem-solving and a case study round where I had to present a solution to a real-world engineering problem Tesla is facing.',
+  const [experiences, setExperiences] = useState();
+  const [error,seterror]=useState(false);
+
+  useEffect(()=>{
+    const fetchData=async()=>{
+      const res=await fetch(`/api/listing/get?limit=6`);
+        const data=await res.json();
+        setExperiences(data);
+        console.log(data);
+        
     }
-  ]);
+    fetchData();
+  },[])
 
 
 
@@ -201,7 +187,8 @@ export default function Home() {
           Featured Interview Experiences
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {experiences.map((exp) => (
+
+          {experiences && experiences.length>0 && experiences.map((exp) => (
             <div
               key={exp._id}
               className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
@@ -213,7 +200,7 @@ export default function Home() {
                 {exp.description}
               </p>
               <Link
-                to={`/experience/${exp._id}`}
+                to={`/listing/${exp._id}`}
                 className="text-blue-700 hover:underline font-medium"
               >
                 Read More

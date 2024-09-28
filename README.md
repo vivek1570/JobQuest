@@ -1,6 +1,4 @@
-Here's a sample README file for your JobQuest project:
 
-```markdown
 # JobQuest
 
 JobQuest is a dedicated platform for users to share their job interview experiences, empowering job seekers with valuable insights and knowledge. Our mission is to create a supportive community where individuals can learn from one another and enhance their interview preparation.

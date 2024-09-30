@@ -46,7 +46,13 @@ export const getListings=async(req,res,next)=>{
   try{
     const limit=parseInt(req.query.limit)||9;
     const startIndex=parseInt(req.query.startIndex)||0;
-    const listing=await Listing.find().limit(limit).skip(startIndex);
+    const searchTerm=req.query.searchTerm||"";
+    const listing=await Listing.find({
+      name:{
+        $regex:searchTerm,
+        $options:"i"
+      }
+    }).limit(limit).skip(startIndex);
     return res.status(200).json(listing);
   }
   catch(error)
